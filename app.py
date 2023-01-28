@@ -10,7 +10,7 @@ input_file = 'input.csv'
 output_file = 'output.csv'
 
 # Google Geolocation API Key
-api_key = 'YOUR_API_KEY'
+api_key = 'INSERT API KEY HERE'
 
 try:
     # Read input CSV file
@@ -33,7 +33,7 @@ try:
             municipality = row['municipality']
 
             # Query Google Geolocation API
-            url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city}&key={api_key}'
+            url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city, municipality},Sweden&key={api_key}'
             response = requests.get(url)
             if response.status_code != 200:
                 print(f"Error: API returned error code {response.status_code}")
@@ -45,8 +45,18 @@ try:
                 continue
 
             # Extract lat and lng from API response
-            lat = response['results'][0]['geometry']['location']['lat']
-            lng = response['results'][0]['geometry']['location']['lng']
+            if 'results' in response and len(response['results']) > 0:
+                if 'geometry' in response['results'][0] and 'location' in response['results'][0]['geometry']:
+                    lat = response['results'][0]['geometry']['location']['lat']
+                    lng = response['results'][0]['geometry']['location']['lng']
+                else:
+                    print(f"Error: No location data found for {city}")
+                    lat = 0
+                    lng = 0
+            else:
+                print(f"Error: No results found for {city}")
+                lat = 0
+                lng = 0
 
             # Write to output CSV file
             writer.writerow({'city': city, 'municipality': municipality, 'lat': lat, 'lng': lng})
