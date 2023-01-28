@@ -28,7 +28,7 @@ with open(output_file, 'w', newline='') as output_csv:
         county = row['county']
 
         # Query Google Geolocation API
-        url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city}&key={api_key}'
+        url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city,county}&key={api_key}'
         response = requests.get(url).json()
 
         # Extract lat and lng from API response
