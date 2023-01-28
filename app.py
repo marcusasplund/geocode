@@ -19,16 +19,16 @@ with open(input_file, 'r') as input_csv:
 
 # Write output CSV file
 with open(output_file, 'w', newline='') as output_csv:
-    fieldnames = ['city', 'county', 'lat', 'lng']
+    fieldnames = ['city', 'municipality', 'lat', 'lng']
     writer = csv.DictWriter(output_csv, fieldnames=fieldnames)
     writer.writeheader()
 
     for row in data:
         city = row['city']
-        county = row['county']
+        municipality = row['municipality']
 
         # Query Google Geolocation API
-        url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city,county}&key={api_key}'
+        url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city,municipality}&key={api_key}'
         response = requests.get(url).json()
 
         # Extract lat and lng from API response
@@ -36,7 +36,7 @@ with open(output_file, 'w', newline='') as output_csv:
         lng = response['results'][0]['geometry']['location']['lng']
 
         # Write to output CSV file
-        writer.writerow({'city': city, 'county': county, 'lat': lat, 'lng': lng})
+        writer.writerow({'city': city, 'municipality': municipality, 'lat': lat, 'lng': lng})
         
         # Add random interval between 1-3 seconds
         sleep_time = random.uniform(1, 3)
