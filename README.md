@@ -22,7 +22,7 @@ Before running the script, make sure to insert a valid [Google Geolocation API k
 ```python
 api_key = 'INSERT API KEY HERE'
 ```
-If needed, modify the variables `city, municipality, country` so it fits your input data
+If needed, modify the variables `city, municipality, country` to fit your input data
 
 ## Usage
 1. Prepare a CSV file named input.csv with the following columns:
