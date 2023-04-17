@@ -21,6 +21,9 @@ output_file = 'output.csv'
 # Google Geolocation API Key
 api_key = 'INSERT API KEY HERE'
 
+# Country
+country = 'Sweden'
+
 
 def read_input_csv(file_path):
     """
@@ -68,7 +71,7 @@ def get_lat_lng(city, municipality, api_key):
     :param api_key: str, the Google Geolocation API key
     :return: tuple, (latitude, longitude) as floats, or (0, 0) if not found
     """
-    url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city, municipality},Sweden&key={api_key}'
+    url = f'https://maps.googleapis.com/maps/api/geocode/json?address={city, municipality, country}&key={api_key}'
     response = requests.get(url)
     if response.status_code != 200:
         print(f"Error: API returned error code {response.status_code}")
