@@ -1,12 +1,18 @@
 # Geocode CSV
 This script reads a CSV file containing city and municipality names, queries the Google Geolocation API to obtain the latitude and longitude for each city, and writes the results to a new CSV file.
 
-Prerequisites
-Python 3.x
-Google Geolocation API key
-Installation
-Clone or download the repository containing the script.
-Install the required packages using the following command:
+## Prerequisites
+* [Python 3.x](https://www.python.org/downloads/)
+* [pip](https://pypi.org/project/pip/) or other package installer for python
+* [Google Geolocation API key](https://developers.google.com/maps/documentation/geolocation/get-api-key)
+## Installation
+1. Clone the repository: For this step, you need [Git](https://git-scm.com/) installed.
+    ```bash
+    git clone https://github.com/marcusasplund/geocode.git
+    ```
+
+2. Install the required packages using the following command:
+
 ```bash
 pip install -r requirements.txt
 ```
