@@ -40,7 +40,7 @@ Malmo,Malmo
 ```
 2. Place the `input.csv` file in the same directory as the script.
 
-3.Run the script using the following command:
+3. Run the script using the following command:
 
 ```bash
 python geocode_csv.py
