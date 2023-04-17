@@ -17,7 +17,7 @@ This script reads a CSV file containing city and municipality names, queries the
 pip install -r requirements.txt
 ```
 ## Configuration
-Before running the script, make sure to insert a valid Google Geolocation API key in the api_key variable in the script:
+Before running the script, make sure to insert a valid [Google Geolocation API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) in the api_key variable in the script:
 
 ```python
 api_key = 'INSERT API KEY HERE'
